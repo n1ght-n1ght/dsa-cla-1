@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int initial_size = 10;
+    int new_size = 20;
+
+    int *packets = malloc(initial_size * sizeof(int));
+    if (packets == NULL){
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (int i = 0; i < initial_size; i++){
+        packets[i] = i + 1;
+    }
+
+    printf("Initial packets:\n");
+    for (int i = 0; i < initial_size; i++){
+        printf("%d ", packets[i]);
+    }
+    printf("\n");
+
+    packets = realloc(packets, new_size * sizeof(int));
+    if (packets == NULL){
+        printf("Memory reallocation failed.\n");
+        return 1;
+    }
+
+    for (int i = initial_size; i < new_size; i++){
+        packets[i] = i + 1;
+    }
+
+    printf("Packets after resizing:\n");
+    for (int i = 0; i < new_size; i++){
+        printf("%d ", packets[i]);
+    }
+    printf("\n");
+
+    free(packets);
+
+    return 0;
+}
