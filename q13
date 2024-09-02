@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+typedef struct{
+    int area;
+} Square;
+
+typedef struct{
+    int length;
+    int breadth;
+} Rectangle;
+
+int main(){
+    Square mySquare;
+    mySquare.area = 25;
+
+    Rectangle myRectangle;
+    myRectangle.length = 10;
+    myRectangle.breadth = 5;
+
+    printf("Square Area: %d\n", mySquare.area);
+
+    printf("Rectangle Length: %d\n", myRectangle.length);
+    printf("Rectangle Breadth: %d\n", myRectangle.breadth);
+
+    return 0;
+}
