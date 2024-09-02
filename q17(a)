@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+typedef struct{
+    int regNumber;
+    char name[50];
+    int age;
+    float cgpa;
+} Student;
+
+Student findTopStudent(Student students[], int size){
+    Student topStudent = students[0];
+    for (int i = 1; i < size; i++){
+        if (students[i].cgpa > topStudent.cgpa){
+            topStudent = students[i];
+        }
+    }
+    return topStudent;
+}
+
+int main(){
+    Student students[5];
+
+    for (int i = 0; i < 5; i++){
+        printf("Enter details for student %d\n", i + 1);
+        printf("Register Number: ");
+        scanf("%d", &students[i].regNumber);
+        printf("Name: ");
+        scanf(" %[^\n]%*c", students[i].name);
+        printf("Age: ");
+        scanf("%d", &students[i].age);
+        printf("CGPA: ");
+        scanf("%f", &students[i].cgpa);
+        printf("\n");
+    }
+
+    Student topStudent = findTopStudent(students, 5);
+    printf("Student with the greatest CGPA:\n");
+    printf("Register Number: %d\n", topStudent.regNumber);
+    printf("Name: %s\n", topStudent.name);
+    printf("Age: %d\n", topStudent.age);
+    printf("CGPA: %.2f\n", topStudent.cgpa);
+
+    return 0;
+}
