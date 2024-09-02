@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+#define MAX_STUDENTS 10
+
+int main(){
+    char studentList[MAX_STUDENTS][50];
+    int count = 0;
+
+    if (count < MAX_STUDENTS){
+        printf("Enter the name of student %d: ", count + 1);
+        scanf("%49s", studentList[count]);
+        count++;
+    }
+
+    if (count < MAX_STUDENTS){
+        printf("Enter the name of student %d: ", count + 1);
+        scanf("%49s", studentList[count]);
+        count++;
+    }
+
+    printf("Students who submitted their assignments:\n");
+    for (int i = 0; i < count; i++){
+        printf("%d. %s\n", i + 1, studentList[i]);
+    }
+
+    return 0;
+}
