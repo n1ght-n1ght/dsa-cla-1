@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int isPrime(int num){
+    if (num < 2) return 0;
+    if (num == 2) return 1;
+    if (num % 2 == 0) return 0;
+    for (int i = 3; i * i <= num; i += 2) {
+        if (num % i == 0) return 0;
+    }
+    return 1;
+}
+
+int main(){
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    int prevDigit = n % 10;
+    int count = 0;
+
+    n /= 10;
+
+    while (n > 0){
+        int currentDigit = n % 10;
+        int twoDigitNumber = currentDigit * 10 + prevDigit;
+
+        if (isPrime(twoDigitNumber)){
+            count++;
+        }
+
+        prevDigit = currentDigit;
+        // Remove the last digit
+        n /= 10;
+    }
+
+    printf("Number of two-digit prime numbers: %d\n", count);
+
+    return 0;
+}
