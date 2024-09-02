@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(){
+    int weights[5] = {10, 25, 15, 30, 20};\
+    int total_weight = 0;
+
+    for (int i = 0; i < 5; i++){
+        total_weight += weights[i];
+    }
+
+    printf("Total weight collected: %d\n", total_weight);
+
+    return 0;
+}
